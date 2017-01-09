@@ -6,10 +6,20 @@
         <div class="row">
             <div class="col s12 m3">
                 <img class="circle responsive-img" src="{{data.image_url}}" alt="">
-                <button class="btn blue" type="submit" name="change_photo">Change Photo</button>
-                <form class="" action="{{data.id}}/delete" method="post">
+                <form class="" action="{{data.id}}/updatePhoto" method="post">
+                  <input type="text" name="photo_url" placeholder="Enter image URL to change Photo">
+                  <button class="btn blue" type="submit">Edit Photo!</button>
+                </form>
+                {{#if data.id}}
+                <form action='{{data.id}}/delete?_method=delete' method='post'>
                   <button class="btn red">Delete Account</button>
                 </form>
+                {{else}}
+                <form action='/' method='get'>
+                  <button class="btn red">Delete Account</button>
+                </form>
+                {{/if}}
+
             </div>
             <div class="col s12 m9">
                 <form class="user-info" action="{{data.id}}/update" method="post">
@@ -30,13 +40,13 @@
                             <input name="password" placeholder= "Old Password" value="" id="current_password" type="password">
                         </div>
                         <div class="input-field col s12">
-                          <input name="" placeholder= "New Password" value="" id="new_password" type="password">
+                          <input name="new_password" placeholder= "New Password" value="" id="new_password" type="password">
                         </div>
                         <div class="input-field col s12">
-                            <input name="" placeholder= "Retype New Password" value="" id="retype_new_password" type="password">
+                            <input name="new_password_verify" placeholder= "Retype New Password" value="" id="retype_new_password" type="password">
                         </div>
                     </div>
-                    <button class="btn red" type="reset" name="cancel">Cancel</button>
+                    <button class="btn red" type="reset" name="cancel">Clear Changes</button>
                     <button class="btn green" type="submit">Save</button>
                 </form>
             </div>

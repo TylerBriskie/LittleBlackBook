@@ -1,0 +1,62 @@
+<div class='container'>
+    <h4>Date Log</h4>
+
+    <div class='completed'>
+
+        <table>
+          <caption>
+          <h5>Previous Dates</h5>
+          </caption>
+            <thead>
+                <tr>
+                    <th data-field='name'>Name</th>
+                    <th data-field='date'>Day</th>
+                    <th data-field='location'>Location</th>
+                    <th data-field='contact-rating'>Contact Rating</th>
+                    <th data-field='date-review'>Date Rating</th>
+                    <th data-field='date-notes'>Date Notes</th>
+                </tr>
+            </thead>
+            <tbody class="before-dates">
+                {{#each date}}
+                    {{#if this.has_occured}}
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.date}}</td>
+                            <td>{{this.location}}</td>
+                            <td><span class="stars center">{{this.rating}}</span></td>
+                            <td><span class="stars center">{{this.date_review}}</span></td>
+                            <td>{{this.date_note}}</td>
+                        </tr>
+                    {{/if}}
+                {{/each}}
+            </tbody>
+    </div>
+    <div class='upcoming'>
+        <table>
+          <caption>
+            <h5>Upcoming Dates</h5>
+          </caption>
+            <thead>
+                <tr>
+                    <th data-field='name'>Name</th>
+                    <th data-field='date'>Date</th>
+                    <th data-field='location'>Location</th>
+                    <th data-field='launch-date'>Launch Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each date}}
+                    {{#unless this.has_occured}}
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.date}}</td>
+                            <td>{{this.location}}</td>
+                            <td><a href='/toolkit/?date_id={{this.date_id}}'><button class='btn'>Launch Date</button></a></td>
+                        </tr>
+                    {{/unless}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
         table.text('where_met');
         table.integer('rating');
         table.text('image_url');
+        table.text('note');
     })
 };
 

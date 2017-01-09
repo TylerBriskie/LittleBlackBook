@@ -5,9 +5,9 @@ var protect = require('../db/encryption.js');
 var profile = require('../db/profile.js');
 
 router.get('/', (req, res, next) => {
-    knex('profile').select().then(data => {
+    knex('profile').select().then(profiles => {
         res.render('admin', {
-            data,
+            profiles,
             layout: false
         });
     })

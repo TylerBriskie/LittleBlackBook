@@ -7,79 +7,93 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://use.fontawesome.com/00eee0672f.js"></script>
 </head>
+
 <body>
     <header>
         <nav class="grey darken-1">
-                <div class="nav-wrapper row container">
-                    <div class="col s12 m6">
-                        <i class="fa fa-book fa-3x" aria-hidden="true"></i>
-                        <a href="/" class="brand-logo">Little Black Book</a>
-                    </div>
-                    <div class="col s12 m4 right-nav">
-                        <ul>
-                          <li>Admin Panel</li>
-                        </ul>
-                    </div>
+            <div class="nav-wrapper row container">
+                <div class="col s12 m6">
+                    <i class="fa fa-book fa-3x" aria-hidden="true"></i>
+                    <a href="/" class="brand-logo">Little Black Book</a>
                 </div>
+                <ul>
+                    <li>Admin Panel</li>
+                </ul>
+                <a class='dropdown-button btn valign blue lighten-2' href='#' data-activates='dropdown1'>Menu</a>
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="/plan_date">Plan A Date</a></li>
+                    <li><a href="/date">View Dates</a></li>
+                    <li><a href="/contacts">View All Contacts</a></li>
+                    <li class="/profile"><a href="/profile">Edit User Profile</a></li>
+                </ul>
+                <a class='btn valign red lighten-2 logoutbutton' href='/logout' data-activates='dropdown1'>LogOut</a>
+            </div>
         </nav>
     </header>
     <main>
         <div class="container">
-                    <h3>Current Users</h3>
-                      <table class='bordered'>
-                        <thead>
-                          <tr>
-                            <th data-field='id'>ID</th>
-                            <th data-field='first_name'>First Name</th>
-                            <th data-field='last_name'>Last Name</th>
-                            <th data-field='id'>Email</th>
-                            <th data-field='password'>Password</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                    {{#each data}}
+            <h3>Current Users</h3>
+            <table class='bordered'>
+                <thead>
                     <tr>
-                      <td>{{this.id}}</td>
-                      <td>{{this.first_name}}</td>
-                      <td>{{this.last_name}}</td>
-                      <td>{{this.email}}</td>
-                      <td>{{this.password}}</td>
-                      <td><a href='profile/{{this.id}}/edit'>Edit</a></td>
-                      <td><form action='profile/{{this.id}}/delete?_method=delete' method='post'><button type='submit'>Delete</form></button></td>
-                      </tr>
+                        <th data-field='id'>ID</th>
+                        <th data-field='first_name'>First Name</th>
+                        <th data-field='last_name'>Last Name</th>
+                        <th data-field='id'>Email</th>
+                        <th data-field='password'>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each profiles}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.first_name}}</td>
+                            <td>{{this.last_name}}</td>
+                            <td>{{this.email}}</td>
+                            <td>{{this.password}}</td>
+                            <td><a class='btn waves-blue waves-effect' href='/profile/{{this.id}}'>Edit</a></td>
+                            <td>
+                                <form action='profile/{{this.id}}/delete?_method=delete' method='post'><button class='btn waves-blue waves-effect' type='submit'>Delete</form></button></td>
+                        </tr>
                     {{/each}}
-                    </tbody>
-                  </table>
-                  <h3>Create a new User</h3>
-                  <form method='post' action='/admin'>
-                      <div class='col s6'>
-                        <label for='first_name'>First Name</label>
-                        <input name='first_name' class='validate' type='text' required />
-                      </div>
-                      <div class='col s6'>
-                        <label for='last_name'>Last Name</label>
-                        <input name='last_name' class='validate' type='text' required />
-                      </div>
-                      <div class='col s12'>
-                        <label for='email'>Email</label>
-                        <input name='email' class='validate' type='email' required />
-                      </div>
-                      <div class='col s12'>
-                        <label for='password'>Password</label>
-                        <input name='password' class='validate' type='password' required />
-                      </div>
-                      <div class='col s12'>
-                        <label for="image_url">Image Url</label>
-                        <input name='image_url' class='validate' type='text' required />
-                      <div class='col s12'>
-                        <button type='submit' class='btn btn-success'>Submit</button>
-                      </div>
-                  </form>
+                </tbody>
+            </table>
+            <h3>Create a new User</h3>
+            <form method='post' action='/admin'>
+                <div class='col s6'>
+                    <label for='first_name'>First Name</label>
+                    <input name='first_name' class='validate' type='text' required />
                 </div>
+                <div class='col s6'>
+                    <label for='last_name'>Last Name</label>
+                    <input name='last_name' class='validate' type='text' required />
+                </div>
+                <div class='col s12'>
+                    <label for='email'>Email</label>
+                    <input name='email' class='validate' type='email' required />
+                </div>
+                <div class='col s12'>
+                    <label for='password'>Password</label>
+                    <input name='password' class='validate' type='password' required />
+                </div>
+                <div class='col s12'>
+                    <label for="image_url">Image Url</label>
+                    <input name='image_url' class='validate' type='text' required />
+                    <div class='col s12'>
+                        <button type='submit' class='btn btn-success'>Submit</button>
+                    </div>
+            </form>
+            </div>
     </main>
-    <footer>
-
-    </footer>
+    <footer class="page-footer">
+         <!-- <div class="footer-copyright"> -->
+           <div class="container">
+           © 2017 Whiteboard Bandits
+           </div>
+         <!-- </div> -->
+       </footer>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 </body>
 

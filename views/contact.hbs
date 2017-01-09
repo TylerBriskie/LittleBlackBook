@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="row contact-header">
+        <div class="col s12 m3">
+            <h3>{{data.name}}</h3>
+            <h5>{{data.where_met}}</h5>
+        </div>
+        <div class="col s12 m9 contact-buttons">
+            <a href="/plan_date"><button class="btn orange" type="submit" name="submit">Plan A Date</button></a>
+            <a href="{{user.id}}/{{data.id}}/delete"><button class="btn red" type="submit" name="delete">Delete Contact</button></a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+
+          <!-- <form class="" action="" method=""> -->
+          <form class="suitor-info" action="{{user.id}}/{{data.id}}/updatePhoto" method="post">
+            <div class="col s12 m3 outline-me">
+                <img class="circle responsive-img suitor-img" src="{{data.image_url}}" alt="">
+                <div class="input-field col s12">
+
+                  <span class="stars center">{{data.rating}}</span>
+                </div>
+                <input type="text" name="image_url" placeholder="Enter image URL to change Photo">
+                <button class="btn blue" type="submit" name="change_photo">Change Photo</button>
+            </div>
+          </form>
+          <form class="suitor-info" action="{{user.id}}/{{data.id}}/update" method="post">
+            <div class="col s12 m9">
+
+                <div class="input-field col s6">
+                    <label for="name">Name</label>
+                    <input value="{{data.name}}" id="name" name="name" type="text">
+                </div>
+                <div class="input-field col s6">
+                    <label for="age">Age</label>
+                    <input value="{{data.age}}" id="age" name="age" type="text">
+                </div>
+                <div class="input-field col s6">
+                    <label for="where_met">Where you met??</label>
+                    <input value="{{data.where_met}}" id="where_met" name="where_met" type="text">
+                </div>
+                <div class="input-field col s6">
+                    <label for="rating">Rating 1-10</label>
+                    <input value="{{data.rating}}" id="rating" name="rating" type="number" min="1" max="10">
+                </div>
+                <div class="input-field col s12">
+                    <label for="rating">Notes</label>
+                    {{#if data.note}}
+                    <input value="{{data.note}}" id="rating" name="notes" type="text">
+                    {{else}}
+                    <input placeholder="Enter a note about {{data.name}}" id="rating" name="notes" type="text">
+                    {{/if}}
+                </div>
+
+
+
+                <div class="row">
+                  <!-- <div class="all-interests"> -->
+
+
+                    <div class="col s12 all-interests">
+                        <form action="#">
+                            {{#each data.allInterests}}
+                                {{#each this}}
+                                    {{#if this.interest_active }}
+                                        <p>
+                                            <input type="checkbox" class="filled-in" id="{{ this.id }}" name="suitor_interests" value="{{ this.id }}" checked/>
+                                            <label for="{{ this.id }}">{{ this.interest_name }}</label>
+                                        </p>
+                                    {{else}}
+                                        <p>
+                                            <input type="checkbox" class="filled-in" id="{{ this.id }}" name="suitor_interests" value="{{ this.id }}" />
+                                            <label for="{{ this.id }}">{{ this.interest_name }}</label>
+                                        </p>
+                                    {{/if}}
+                                {{/each}}
+                            {{/each}}
+                        </form>
+                        </div>
+                    <!-- </div> -->
+                    <div class="col s2">
+                    </div>
+                </div>
+                <button class="btn red" type="cancel" name="cancel">Cancel</button>
+                <button class="btn green" type="submit">Save</button>
+                <!-- </form> -->
+                <!-- <button class="btn red" type="cancel" name="cancel">Cancel</button>
+                <button class="btn green" type="submit">Save</button> -->
+            </div>
+        </form>
+
+    </div>
+</div>
+</div>

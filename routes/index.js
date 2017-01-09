@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-
+var auth = require('../auth/auth.js');
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', auth.loggedInRedirect,function(req, res, next) {
   res.render('index', {layout:false});
 });
 

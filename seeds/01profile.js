@@ -1,6 +1,6 @@
 exports.seed = function(knex, Promise) {
     // Deletes ALL existing entries
-    return knex.raw('DELETE FROM profile; ALTER SEQUENCE profile_id_seq RESTART WITH 5')
+    return knex.raw('DELETE FROM profile; ALTER SEQUENCE profile_id_seq RESTART WITH 6')
         .then(() => {
             const profiles = [{
                 id: 1,
@@ -29,6 +29,15 @@ exports.seed = function(knex, Promise) {
                 password: '$2a$10$GI0b3x4a/qdhCS94.swn6u/ai7jJZa1MU0v68fKA.GxWBc4PdlB1e',
                 first_name: 'Kevin',
                 last_name: 'Love',
+                is_admin: true,
+                image_url: 'https://s27.postimg.org/aq08ncehf/Screen_Shot_2017_01_03_at_8_18_07_PM.png'
+            },
+            {
+                id: 5,
+                email: 'admin@admin.com',
+                password: '$2a$10$Ytv5sQ.Xhw4dJMgtWRuFNuqqeqicXfuOvNtLTDZqG1LFQgDRanogK',
+                first_name: 'Admin',
+                last_name: 'Admin',
                 is_admin: true,
                 image_url: 'https://s27.postimg.org/aq08ncehf/Screen_Shot_2017_01_03_at_8_18_07_PM.png'
             }]

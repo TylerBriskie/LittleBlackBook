@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>{{title}}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
     <script src="https://use.fontawesome.com/00eee0672f.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <header>
         <nav class="grey darken-1">
-                <div class="nav-wrapper row container">
-                    <div class="col s12 m6">
-                        <i class="fa fa-book fa-3x" aria-hidden="true"></i>
-                        <a href="/" class="brand-logo">Little Black Book</a>
-                    </div>
-                    <div class="col s12 m4 right-nav">
-                        <form class="login_info valign-wrapper" action="/login" method="post">
-                            <div class="input-field col s6 m4 valign">
-                                <label for="email">Email</label>
-                                <input name="email" id="user_email" type="email" class="validate valign" required>
-                            </div>
-                            <div class="input-field col s6 m4 pass-field">
-                                <label for="password">Password</label>
-                                <input name="password" id="password" type="password" class="validate" required>
-                            </div>
-
-                            <div class="col s4">
-                                <button type="submit" class=" blue lighten-2 btn">Login</button>
-                            </div>
-                        </form>
-                    </div>
+            <div class="nav-wrapper row container">
+                <div class="col s12 m6">
+                    <i class="fa fa-book fa-3x" aria-hidden="true"></i>
+                    <a href="/" class="brand-logo">Little Black Book</a>
                 </div>
+                <div class="col s12 m4 right-nav valign-wrapper">
+                    <!-- Dropdown Trigger -->
+                    <a class='dropdown-button btn valign blue lighten-2' href='#' data-activates='dropdown1'>Menu</a>
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="/plan_date">Plan A Date</a></li>
+                        <li><a href="/date">View Dates</a></li>
+                        <li><a href="/contacts">View All Contacts</a></li>
+                        <li class="/profile"><a href="/profile">Edit User Profile</a></li>
+                    </ul>
+                    <a class='btn valign red lighten-2 logoutbutton' href='/logout' data-activates='dropdown1'>LogOut</a>
+                </div>
+            </div>
         </nav>
     </header>
     {{{body}}}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-  </body>
+    <script src="/javascripts/shared.js"></script>
+    <script src="/javascripts/contacts.js"></script>
+</body>
+<footer class="page-footer">
+     <!-- <div class="footer-copyright"> -->
+       <div class="container">
+       © 2017 Whiteboard Bandits
+       </div>
+     <!-- </div> -->
+   </footer>
 </html>

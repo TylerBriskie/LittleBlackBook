@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row center-align interest">
+      <h3>Talk to your Date about:</h3>
+  {{#each suitor_interest}}
+    <h1>{{interest_name}}</h1>
+  {{/each}}
+    <a href="/toolkit?date_id={{suitor_interest.date_id}}" class="center-align"><button class="btn">Back</button></a>
+    </div>
+</div>
