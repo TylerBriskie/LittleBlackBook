@@ -2,7 +2,7 @@
 <h5>Q2 Project by the Whiteboard Bandits, G38 </h5>
 <h6>Andrew Biviano, Tyler Briskie, Darren Hankins, Chris Houdlette </h6>
 
-<p><a href="littleblackbook-g-38.herokuapp.com">Little Black Book on Heroku.</a></p>
+<p><a href="https://littleblackbook-g-38.herokuapp.com/">Little Black Book on Heroku.</a></p>
 
 <p>Imagine a world where dating is mostly done online, selecting potential mates with the swipe of a finger instead of a lengthy courtship process.  A poke on facebook instead of an awkward set-up with someone's cousin.  Well, check your map, brother, cause we are already living there.</p>
 
